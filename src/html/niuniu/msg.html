@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/appui.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            background: #fff;
+        }
+        .msg-cntr{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 9999;
+            background: rgba(0,0,0,0.3);
+            color: #333;
+        }
+        .msg-cntr .msg-wrap{
+            position: relative;
+            top: 10rem;
+            width: 28rem;
+            background: #fff;
+            border-radius:0.3rem;
+            margin: auto;
+        }
+        .msg-cntr .msg-wrap .titlebar{
+            border-bottom: 1px solid #eee;
+        }
+        .msg-cntr .msg-wrap .title{
+            padding: 1rem;
+            font-size: 1.6rem;
+        }
+        .msg-cntr .msg-wrap .close{
+            padding: 1rem;
+            font-size: 1.4rem;
+            color: #888;
+        }
+
+        .msg-cntr .msg-wrap{
+            font-size: 1.6rem;
+            padding-bottom: 1.4rem
+        }
+        .msg-cntr .msg-wrap .msg{
+            padding: 1rem  1rem  0rem  1rem ;
+            font-size: 1.4rem;
+        }
+
+        .msg-cntr .msg-wrap .item{
+            line-height: 3.5rem;
+            font-size: 1.4rem;
+            border-bottom: 1px solid #eee;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="msg-cntr">
+    <div class="msg-wrap">
+        <div class="cell titlebar">
+            <div class="cell-bd">
+                <p class="title">张三</p>
+            </div>
+            <div class="hd close">
+                关闭
+            </div>
+        </div>
+        <div class="msg">
+            <p class="item">发送文字消息</p>
+            <p class="item">发送语音</p>
+            <p class="item">请他出去</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

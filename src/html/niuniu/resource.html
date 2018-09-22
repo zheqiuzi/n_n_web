@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/appui.css">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            border: 0;
+        }
+        html{
+            font-size: 62.5%;
+        }
+        body{
+            background: #fff;
+        }
+        .res-cntr{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            background: rgba(0,0,0,0.3);
+        }
+        .res-wrap{
+            position: relative;
+            top: 10rem;
+            width: 28rem;
+            background: #fff;
+            border-radius:0.3rem;
+            margin: auto;
+        }
+        .res-wrap .title{
+            padding: 1.4rem;
+            font-size: 1.8rem;
+        }
+        .res-wrap{
+            font-size: 1.6rem;
+            padding-bottom: 1.4rem
+        }
+
+        .res-wrap .win{
+            color: #4c9245;
+        }
+        .res-wrap .fail{
+            color: #dd581a;
+        }
+        .res-wrap .cell{
+            line-height: 4rem;
+            padding: 0 1.4rem
+        }
+        .res-wrap .cell:nth-child(even){
+            background:#e5e5e5;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="res-cntr">
+    <div class="res-wrap">
+        <p class="title">对局结果</p>
+        <div class="cell win">
+            <div class="cell-bd nickname">张三</div>
+            <div class="cell-ft blance">+100</div>
+        </div>
+        <div class="cell fail">
+            <div class="cell-bd nickname">张三</div>
+            <div class="cell-ft blance">+100</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

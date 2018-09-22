@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="../static/js/jquery.min.js"></script>-->
+    <!--<script src="../static/js/jquery.js"></script>-->
+
+</head>
+<body>
+
+<form id="a1">
+    <select  value="select" _dd_value="select" id="select">
+
+    </select>
+    <input value="input" _dd_value="input" id="input">
+
+</form>
+
+<script>
+
+
+    function $() {
+        var elements = new Array();
+
+        for (var i = 0; i < arguments.length; i++) {
+            var element = arguments[i];
+            if (typeof element == 'string'){
+                element = document.getElementById(element);
+                element._dd_value=element.getAttribute("_dd_value");
+            }
+
+            if (arguments.length == 1)
+                return element;
+
+            elements.push(element);
+        }
+
+        return elements;
+    }
+
+
+    // var _select=document.getElementById("select");
+    // _select._dd_value=_select.getAttribute("_dd_value");
+    // console.log( _select._dd_value);
+    //
+    //
+    // var _input=document.getElementById("input");
+    // _input._dd_value=_input.getAttribute("_dd_value");
+    // console.log( _input._dd_value);
+
+ console.log($("select")._dd_value)
+
+</script>
+
+
+</body>
+</html>

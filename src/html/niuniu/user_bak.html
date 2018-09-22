@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/appui.css">
+    <style>
+        *{
+            padding:0rem;
+            border: 0rem;
+            margin: 0rem;
+        }
+        body{
+            background-image: url(../../static/images/niuniu_bg.jpg);
+            background-size: 100%;
+            /*padding: 0rem 10rem;*/
+            font-size: 62.5%;
+        }
+        body >*{
+            font-size: 0rem;
+        }
+        .poker-groups{
+            font-size: 0rem;
+            height: 56rem;
+            position: relative;
+        }
+        .poker-groups .poker-wrap{
+            width: 17rem;
+            display: inline-block;
+            position: relative;
+        }
+        .poker-groups .poker-wrap img{
+            display: block;
+            width: 40rem;
+            box-shadow: -5rem 0rem 18rem -3rem rgba(0,0,0,0.2);
+            border-radius: 4rem;
+        }
+
+        .poker-groups .poker-wrap .card_type{
+            position: absolute;
+            top: 0rem;
+            right: -23rem;
+            border-radius: 0rem;
+            width: 29rem;
+            box-shadow: none;
+        }
+        .avatar-wrap{
+            width: 31rem;
+            height: 31rem;
+            display: block;
+            border-radius: 2rem;
+            overflow: hidden;
+            margin-top: -2rem;
+        }
+        .avatar-wrap img{
+            width: 100%;
+            display: block;
+        }
+        .nickname{
+            font-size: 10rem;
+            color: #fff;
+            text-align: center;
+            margin-top: 5rem;
+        }
+        .banker{
+            height: 16rem;
+            background: #feb63b;
+            border-radius: 4rem 4rem 0rem 0rem;
+            font-size: 10rem;
+            text-align: center;
+            color: #71540a;
+            line-height: 16rem;
+            visibility: hidden;
+        }
+        .score{
+            position: relative;
+        }
+        .score p{
+            margin-bottom: 6rem;
+            font-size: 10rem;
+            color: #fff;
+        }
+        .score .card_type{
+            position: absolute;
+            top: -3rem;
+        }
+        .score .card_type img{
+            width: 39rem;
+            display: inline-block;
+        }
+
+        .user-row{
+            padding: 10rem 15rem;
+        }
+
+        .user-block{
+            /*padding: 10rem 15rem;*/
+            width: 50%;
+            display: inline-block;
+        }
+
+        .allMultiple{
+            display: block;
+            position: absolute;
+            top: 15rem;
+            height: 20rem;
+        }
+        .allMultiple p{
+            height: 20rem;
+            min-width: 20rem;
+            text-align: center;
+            border-radius: 10rem;
+            color: #fff;
+        }
+
+        .user-left .allMultiple{
+            left: 118rem;
+        }
+
+        .user-right .allMultiple{
+            right: 118rem;
+        }
+
+        .user-right .score{
+            text-align: right;
+        }
+        .user-left >.cell-hd,.user-right >.cell-hd{
+            padding: 0rem 8rem;
+        }
+        .user-left .score .card_type{
+            left: 74rem;
+        }
+        .user-left .score .card_type .mult{
+            position: absolute;
+            top: 6rem;
+            left: -32rem;
+            display: block;
+            font-size: 12rem;
+        }
+
+        .user-right .poker-groups{
+            text-align: right;
+            padding-right: 23rem;
+        }
+
+        .user-right .score .card_type{
+            right: 74rem;
+        }
+
+        .user-right .score .card_type .mult{
+            position: absolute;
+            top: 6rem;
+            right: -32rem;
+            display: block;
+            font-size: 12rem;
+        }
+
+
+        .header{
+            padding: 1.5rem 0rem .5rem 0rem;
+        }
+        .header *{
+            font-size: 1.2rem;
+        }
+        .header p{
+            color: #fff;
+            text-align: center;
+            margin-bottom: .5rem;
+        }
+        .header p:last-child{
+            margin-bottom: 0rem;
+        }
+    </style>
+    <style>
+        .mypoker img{
+            width: 50rem;
+            margin: 0rem 4rem;
+            border-radius: 5rem;
+        }
+        .mypoker {
+            padding-top: 20rem;
+            text-align: center;
+            font-size: 0rem;
+            height: 90rem;
+        }
+        .btns {
+            text-align: center;
+            font-size: 0rem;
+            margin-top: 20rem;
+        }
+        .btns button{
+            font-size: 16rem;
+            color: #fff;
+            background: #f39800;
+            border-radius: 5rem;
+            padding: 5rem 10rem;
+            margin: 5rem;
+
+        }
+        .my .card_type{
+            position: relative !important;
+            text-align: center;
+            margin-top: 20rem;
+        }
+        .my .card_type img{
+            width: 60rem;
+        }
+        .user-block,.user-block *{
+            align-self: start;
+        }
+    </style>
+    <style>
+        /*.timer{*/
+            /*position: absolute;*/
+            /*top: 300rem;*/
+            /*margin: auto;*/
+            /*left: 50%;*/
+            /*display: block;*/
+            /*width: 50rem;*/
+            /*height: 50rem;*/
+        /*}*/
+        .nickname{
+            width: 31rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #dfdfdf;
+        }
+        .status{
+            color: #fff;
+            font-size: 12rem;
+            position: absolute;
+        }
+        .visible{
+            /*display: vi;*/
+            visibility: visible;
+        }
+        .otherGamerGrap{
+            height: 418rem;
+            font-size: 0rem;
+        }
+    </style>
+
+    <style>
+
+        .other_status{
+            z-index: 9999;
+            position: absolute;
+            font-size: 12rem;
+            color: #fff;
+            display: inline-block;
+            /*padding: 2rem 4rem;*/
+            /*border-radius: 4rem;*/
+            width: 42rem;
+            bottom: -5rem;
+        }
+        .user-right .other_status{
+            right: -5rem;
+        }
+        .user-left .other_status{
+            left: -5rem;
+        }
+        .other_status img{
+            display: block;
+            width: 100%;
+        }
+        .t-left{
+            text-align: left;
+        }
+        .t-right{
+            text-align: right;
+        }
+        .other_blace{
+            width: 31rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #dfdfdf;
+            margin-top: 0rem !important;
+            font-size: 10rem;
+            color: #fff;
+            text-align: center;
+            margin-top: 0rem;
+        }
+    </style>
+
+    <style>
+        .not_involved{
+            height: 54rem;
+        }
+        .not_involved img{
+            display: inline-block;
+            width: 100rem;
+        }
+        .mb-2{
+            margin-bottom: 2rem !important;
+        }
+        .top-mult ,.top-mult span{
+            color: #fff;
+            font-size: 12rem;
+            margin-bottom: 5rem;
+        }
+    </style>
+
+    <style>
+
+        body{
+            background: #41616c;
+        }
+        .timer{
+            width: 60rem;
+            height: 60rem;
+            display: block;
+            background:#91a6ae;
+            border-radius:50%;
+            border: 1rem solid #fff;
+            color: #fff;
+            position: absolute;
+            margin: auto;
+            top: 280rem;
+        }
+        .timer .i{
+            line-height: 60rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 22rem;
+            color:#ab7e3b ;
+            -webkit-text-stroke: 0.5rem #fce0a6;
+            margin-bottom: 0rem;
+        }
+        .timer .desc{
+            font-size: 10rem;
+            background: #91a6ae;
+            border-radius: 3rem;
+            border: 1rem solid #fff;
+            padding: 2rem 4rem;
+        }
+        .myInfo{
+            margin-top: 20rem;
+            text-align: center;
+            color: #eee;
+            font-size:10rem;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="app">
+    <div class="header">
+        <p>房间号：<span v-text="gameInfo.game.roomid"></span></p>
+        <p>对局：<span v-text="gameInfo.game.gameCurrentCount"></span>/<span v-text="gameInfo.game.gameCount"></span></p>
+    </div>
+
+
+    <div class="otherGamerGrap">
+        <div class="user-block" v-for="(item,index) in gameInfo.otherGamers">
+            <div class="cell"  :class="{ 'user-left':index%2==0,'user-right': index%2==1 }">
+                <div v-if="index%2==0" class="cell-hd">
+                    <!--<div class="banker"  v-bind:class="{'visible':item.role==2}">-->
+                        <!--庄家-->
+                    <!--</div>-->
+                    <p class="top-mult">
+                        x<span v-text="item.allMultiple"></span>倍
+                    </p>
+
+                    <div class="avatar-wrap">
+                        <img :src="item.avatarUrl">
+                    </div>
+                    <p class="nickname mb-2">
+                        得分
+                    </p>
+                    <p class="other_blace" v-text="item.balance"></p>
+                </div>
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>
+                            <span class="nickname" v-text="item.nickName"></span>
+                            <span class="card_type">
+                                 <img  v-if="item.gameResult" :src="item.gameResult.remainder | getResultPath" >
+                                 <span class="mult" v-if="item.gameResult!=null && item.gameResult.currentCardTypeMult=='2'">(2倍)</span>
+                                 <span  class="mult" v-if="item.gameResult!=null && item.gameResult.currentCardTypeMult=='3'">(3倍)</span>
+                            </span>
+
+                        </p>
+                    </div>
+                    <div class="poker-groups" v-if="item.status!=0 && item.status!='0'">
+                        <!--状态栏-->
+                        <div class="other_status" v-if="index%2==1">
+                            <img :src="item.status | userStatus"  >
+                        </div>
+                        <div class="poker-wrap" v-for="(card,i) in item.cards">
+                            <img :src="card | getCardPath">
+                            <img class="card_type" src="../../static/images/banker_label.png" v-if="i==(item.cards.length-1) && item.role==2">
+                        </div>
+
+                        <!--<div class="allMultiple">-->
+                            <!--<p>x<span v-text="item.allMultiple"></span>倍</p>-->
+                        <!--</div>-->
+
+                        <!--状态栏-->
+                        <div class="other_status" v-if="index%2==0">
+                            <img :src="item.status | userStatus"  >
+                        </div>
+
+                    </div>
+                    <div class="not_involved"  v-if="item.status==0 && item.status=='0'" :class="{ 't-left':index%2==0,'t-right': index%2==1 }">
+                        <img src="../../static/images/status/status_0.png">
+                    </div>
+
+                </div>
+                <div v-if="index%2==1" class="cell-hd" :visible="item.role==2">
+                    <!--<div class="banker"  v-bind:class="{'visible':item.role==2}">-->
+                        <!--庄家-->
+                    <!--</div>-->
+                    <p class="top-mult">
+                        x<span v-text="item.allMultiple"></span>倍
+                    </p>
+                    <div class="avatar-wrap">
+                        <img :src="item.avatarUrl">
+                    </div>
+                    <p class="nickname mb-2">
+                        得分
+                    </p>
+                    <p class="other_blace" v-text="item.balance">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="my">
+        <!--准备-->
+        <div class="btns" v-if="gameInfo.my.status==100 || gameInfo.my.status=='100'">
+            <button v-on:click="readying">准备</button>
+        </div>
+        <!--摊牌-->
+        <div class="btns" v-if="gameInfo.my.status==400 || gameInfo.my.status=='400'">
+            <button v-on:click="showdown">摊牌</button>
+        </div>
+        <!--按钮组-->
+        <div class="btns" v-if="gameInfo.my.status==200 || gameInfo.my.status=='200' || gameInfo.my.status==300 || gameInfo.my.status=='300'">
+            <button v-on:click="setWager(1)">1倍率</button>
+            <button v-on:click="setWager(2)">2倍率</button>
+            <button v-on:click="setWager(3)">3倍率</button>
+            <button v-on:click="setWager(5)">5倍率</button>
+        </div>
+        <!--牌型-->
+        <div class="card_type" v-if="gameInfo.my.gameResult" >
+            <img :src="gameInfo.my.gameResult.remainder | getResultPath">
+            <span v-if="gameInfo.my.gameResult!=null && gameInfo.my.gameResult.currentCardTypeMult=='2'">(2倍)</span>
+            <span v-if="gameInfo.my.gameResult!=null && gameInfo.my.gameResult.currentCardTypeMult=='3'">(3倍)</span>
+        </div>
+        <!--我的扑克-->
+        <div class="mypoker">
+
+            <img :src="card | getCardPath" v-for="card in gameInfo.my.cards">
+
+        </div>
+
+        <p class="myInfo">
+            <span v-text="gameInfo.my.nickName"></span>
+            <span>得分：</span>
+            <span v-text="gameInfo.my.balance"></span>
+        </p>
+        <p ></p>
+    </div>
+
+
+
+    <div class="timer" v-show="timer.event!='timeOut'">
+        <p class="i" v-text="timer.remaining">15</p>
+        <p class="desc" v-text="timerStatus[timer.timerType]"></p>
+    </div>
+
+    <!--<div class="timer" >-->
+        <!--<p class="timer_val"><span v-text="timer.remaining"></span></p>-->
+        <!--<p class="timer_name" >准备开始</p>-->
+    <!--</div>-->
+
+</div>
+
+
+</body>
+</html>

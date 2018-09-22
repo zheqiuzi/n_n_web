@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=VCQSGZob51nTalZMZH2CCuqZE1t35P67"></script>
+    <script src="echarts.simple.min.js"></script>
+    <style type="text/css">
+        *{
+            padding: 0px;
+            margin: 0px;
+            border: 0px;
+        }
+        .container{
+            display: inline-block;
+            width: 50%;
+            height: 500px;
+            float: left;
+
+        }
+    </style>
+
+</head>
+<body>
+<div class="container" id="div_1">a</div>
+<div class="container" id="div_2">b</div>
+<div class="container" id="div_3">c</div>
+<div class="container" id="div_4"></div>
+
+<div id="container"></div>
+<script>
+
+    //图表测试数据
+    var testData={
+        "001":[{
+                name:'直接访问',
+                type:'bar',
+                barWidth: '60%',
+                data:[10, 52, 200, 334, 390, 330, 220]
+            }],
+        'Mon':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 334, 390, 330, 220, 200]
+        }],
+        'Tue':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 200, 334, 390, 220, 330]
+        }],
+        'Wed':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 200, 334, 390, 330, 220]
+        }],
+        'Thu':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 200, 390, 330, 220, 334]
+        }],
+        'Fri':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[10, 52, 334, 390, 330, 220, 200]
+        }],
+        'Sat':[{
+                name:'直接访问',
+                type:'bar',
+                barWidth: '60%',
+                data:[10,200, 334, 390, 330, 220, 52]
+            }],
+        'Sun':[{
+            name:'直接访问',
+            type:'bar',
+            barWidth: '60%',
+            data:[ 52, 200, 334, 390, 330, 220,10]
+        }],
+    }
+
+    //地图
+    var map = new BMap.Map("div_4");
+    var point = new BMap.Point(116.414, 39.915);
+    map.centerAndZoom(point, 15);
+
+    //创建一个标记
+    var marker = new BMap.Marker(point);
+    // 给标记添加一个属性 比如id
+    marker.id="001"
+    // 在控制台打印标记 可以看到已经加入进去了
+    console.log(marker);
+
+    // 创建标注
+    map.addOverlay(marker);
+
+    marker.addEventListener("click",function (e) {
+        //e 里面包含了标记的坐标，可以通过控制台打印内容找到，
+        // 同时刚才加入的id属性也可以在currentTarget中找到，可以根据id匹配到数据用来初始化第一个图表
+        console.log(e)
+        initChart_1(testData["001"])
+    })
+
+    // 初始化图表1
+    function initChart_1(data) {
+        option_1 = {
+            color: ['#3398DB'],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : data
+        };
+        var chart_1=echarts.init(document.getElementById('div_1'));
+        chart_1.setOption(option_1);
+        //点击图表柱形图事件
+        chart_1.on('click', function(param) {
+            //通过事件传入的参数 data/index/value 数据匹配到合适的其他数据，初始化其他图表 这里的数据用默认的数据渲染
+
+            console.log(param);//重要的参数都在这里！
+            initChart_2(testData[param.name]);
+            initChart_3(testData[param.name])
+        })
+    }
+
+    // 初始化图表2
+    function initChart_2(data) {
+        option_2 = {
+            color: ['#3398DB'],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series :data
+        };
+        var chart_2=echarts.init(document.getElementById('div_2'));
+        chart_2.setOption(option_2);
+    }
+
+    // 初始化图表3
+    function initChart_3(data) {
+        option_3 = {
+            color: ['#3398DB'],
+            tooltip : {
+                trigger: 'axis',
+                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+                    type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis : [
+                {
+                    type : 'category',
+                    data : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    axisTick: {
+                        alignWithLabel: true
+                    }
+                }
+            ],
+            yAxis : [
+                {
+                    type : 'value'
+                }
+            ],
+            series : data
+        };
+        var chart_3=echarts.init(document.getElementById('div_3'));
+        chart_3.setOption(option_3);
+    }
+
+</script>
+</body>
+</html>

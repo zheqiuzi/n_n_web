@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/css/appui.css">
+    <style>
+        body{
+            background-image: url(../../static/images/niuniu_bg.jpg);
+            background-size: 100%;
+        }
+        .poker-groups{
+            font-size: 0px;
+        }
+        .poker-groups .poker-wrap{
+            width: 17px;
+            display: inline-block;
+            position: relative;
+        }
+        .poker-groups .poker-wrap img{
+            display: block;
+            width: 40px;
+            box-shadow: -5px 0px 18px -3px rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+
+        .poker-groups .poker-wrap .card_type{
+            position: absolute;
+            top: 0px;
+            right: -23px;
+            border-radius: 0px;
+            width: 29px;
+            box-shadow: none;
+        }
+        .avatar-wrap{
+            width: 31px;
+            height: 31px;
+            display: block;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: -2px;
+        }
+        .avatar-wrap img{
+            width: 100%;
+            display: block;
+        }
+        .nickname{
+            font-size: 10px;
+            color: #fff;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .banker{
+            height: 16px;
+            background: #feb63b;
+            border-radius: 4px 4px 0px 0px;
+            font-size: 10px;
+            text-align: center;
+            color: #71540a;
+            line-height: 16px;
+        }
+        .score{
+            position: relative;
+        }
+        .score p{
+            margin-bottom: 6px;
+            font-size: 10px;
+            color: #fff;
+        }
+        .score .card_type{
+            position: absolute;
+            width: 39px;
+            top: -3px;
+        }
+        .user-row{
+            padding: 10px 15px;
+        }
+
+        .user-right .score{
+            text-align: right;
+        }
+        .user-left >.cell-bd,.user-right >.cell-bd{
+            padding: 0px 10px;
+        }
+        .user-left .score .card_type{
+            left: 74px;
+        }
+
+        .user-right .poker-groups{
+            text-align: right;
+            padding-right: 23px;
+        }
+
+        .user-right .score .card_type{
+            right: 74px;
+        }
+
+
+        .header{
+            padding: 15px 0px 5px 0px;
+        }
+        .header p{
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .header p:last-child{
+            margin-bottom: 0px;
+        }
+    </style>
+
+    <style>
+        .not_involved{
+            height: 54px;
+            text-align: right;
+        }
+        .not_involved img{
+            display: inline-block;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <p>房间号：808080</p>
+    <p>对局：8/12</p>
+</div>
+
+<div class="user-row">
+
+    <div class="cell">
+        <div class="cell-bd">
+            <div class="cell user-left">
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+                    <div class="poker-groups">
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cell-bd">
+            <div class="cell user-right">
+
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+
+                    <div class="not_involved">
+                        <img src="../../static/images/status/status_0.png">
+                    </div>
+
+
+                </div>
+
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div class="user-row">
+
+    <div class="cell">
+        <div class="cell-bd">
+            <div class="cell user-left">
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+                    <div class="poker-groups">
+
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+
+                        <style>
+
+                            .other_status{
+                                z-index: 9999;
+                                position: relative;
+                                font-size: 12px;
+                                color: #fff;
+                                background: #f47a00;
+                                display: inline-block;
+                                padding: 2px 4px;
+                                border-radius: 4px;
+                            }
+                            .other_status.ed{
+                                background: #aaaaaa;
+                            }
+                            .user-right .other_status{
+                                right: -19px;
+                            }
+                        </style>
+                        <!--状态栏-->
+                        <span class="other_status">
+                            已准备
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cell-bd">
+            <div class="cell user-right">
+
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+                    <div class="poker-groups">
+                        <span class="other_status ed">
+                            已准备
+                        </span>
+
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div class="user-row">
+
+    <div class="cell">
+        <div class="cell-bd">
+            <div class="cell user-left">
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                        <img class="card_type" src="../../static/images/card_type/card_type_1.png">
+                    </div>
+                    <div class="poker-groups">
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                            <img class="card_type" src="../../static/images/banker_label.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cell-bd">
+            <div class="cell user-right">
+
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                        <img class="card_type" src="../../static/images/card_type/card_type_10.png">
+                    </div>
+                    <div class="poker-groups">
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div class="user-row">
+
+    <div class="cell">
+        <div class="cell-bd">
+            <div class="cell user-left">
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+                    <div class="poker-groups">
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="cell-bd">
+            <div class="cell user-right">
+
+                <div class="cell-bd">
+                    <div class="score">
+                        <p>得分：+9000</p>
+                    </div>
+                    <div class="poker-groups">
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                        <div class="poker-wrap">
+                            <img src="../../static/images/poker/poker_1_4.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="cell-hd">
+                    <div class="banker">
+                        庄家
+                    </div>
+                    <div class="avatar-wrap">
+                        <img src="../../static/images/avatar_default.png">
+                    </div>
+                    <p class="nickname">
+                        张三
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<style>
+    .mypoker img{
+        width: 50px;
+        margin: 0px 4px;
+        border-radius: 5px;
+    }
+    .mypoker {
+        padding-top: 20px;
+        text-align: center;
+        font-size: 0px;
+    }
+    .btns {
+        text-align: center;
+        font-size: 0px;
+        margin-top: 20px;
+    }
+    .btns button{
+        font-size: 16px;
+        color: #fff;
+        background: #f39800;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin: 5px;
+
+    }
+    .my .card_type{
+        position: relative !important;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .my .card_type img{
+        width: 60px;
+    }
+</style>
+<div class="my">
+    <!--按钮组-->
+    <div class="btns">
+        <button>1倍率</button>
+        <button>2倍率</button>
+        <button>3倍率</button>
+        <button>5倍率</button>
+    </div>
+    <!--牌型-->
+    <div class="card_type">
+        <img src="../../static/images/card_type/card_type_10.png">
+    </div>
+    <!--我的扑克-->
+    <div class="mypoker">
+
+        <img src="../../static/images/poker/poker_1_4.png">
+        <img src="../../static/images/poker/poker_1_4.png">
+        <img src="../../static/images/poker/poker_1_4.png">
+        <img src="../../static/images/poker/poker_1_4.png">
+        <img src="../../static/images/poker/poker_1_4.png">
+
+    </div>
+</div>
+
+
+</body>
+</html>
