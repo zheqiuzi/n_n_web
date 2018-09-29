@@ -4,3 +4,5 @@ config/manager_nginx.conf
 /node_modules/
 /target/
 /target
+/dist/
+/dist

@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
     <title>请输入房间号</title>
     <style>
         *{
@@ -61,9 +62,64 @@
 <body>
 <div class="input-wrap">
 <p class="title">请输入房间号</p>
-    <input maxlength="10">
-    <button>进入</button>
+    <input data-selector="roomid" maxlength="10">
+    <button data-event="join">进入</button>
 </div>
+<script>
+    /***客服端消息和事件处理***/
+    var getQueryString=function(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    var getApiDomain=function () {
+        var domain="";
+        var url=location.href;
+        if(url.indexOf("localhost")!=-1 || url.indexOf("192.168")!=-1){
+            domain="192.168.99.217:8080"
+        }else if(url.indexOf("xiejin.ink")){
+            domain="api.xiejin.ink"
+        }
+
+        return domain;
+    }
+
+    var code=getQueryString("code");
+    var userid=getQueryString("userid");
+
+
+
+
+    $(function () {
+        var roomid;
+        $("[data-event='join']").click(function () {
+            roomid=$("[data-selector='roomid']").val();
+            if(roomid==null || roomid==""){
+                alert("请输入房间号");
+                return
+            }
+            var url="http://"+getApiDomain()+"/nn/room/query.do?roomid="+roomid;
+            $.ajax({
+                "url":url,
+                success:function (data) {
+                    var obj=eval("("+data+")");
+                    if(obj.status==200){
+                        location.href="./user.html?roomid="+obj.data+"&&code="+code+"&&userid="+userid;
+                    }else{
+                        alert(obj.data);
+                    }
+                },
+                error:function (data) {
+                    alert("请求失败");
+                }
+            })
+        });
+
+    })
+</script>
+
 
 </body>
 </html>

@@ -176,7 +176,7 @@ var getApiDomain=function () {
     if(url.indexOf("localhost")!=-1 || url.indexOf("192.168")!=-1){
         domain="192.168.99.217:8080"
     }else if(url.indexOf("xiejin.ink")){
-        domain="xiejin.ink"
+        domain="api.xiejin.ink"
     }
 
     return domain;
@@ -193,9 +193,10 @@ var getQueryString=function(name) {
 
 
 //获取用户请求信息
+//userid 在本地测试有效 使用微信登录时候自动使用为openid
 var userid=getQueryString("userid");
 //房间id 必填
-var roomid=getQueryString("state");
+var roomid=getQueryString("roomid");
 //code 用于获取微信信息 线上必填
 var code=getQueryString("code");
 console.log("code:"+code)

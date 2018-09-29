@@ -6,7 +6,8 @@ module.exports={
     devtool: "source-map",
     //一个可执行模块或库的入口文件。
     entry:{
-        user:"./src/static/js/niuniu/user.js"
+        user:"./src/static/js/niuniu/user.js",
+        join:"./src/static/js/niuniu/join.js"
     },
     //输出路径
     output: {
@@ -47,6 +48,15 @@ module.exports={
             requires:['user'],
             //使用到的html模块
             template:"src/html/niuniu/user.html"
+
+        }),
+        new WebPlugin({
+            //输出的路径
+            filename:"html/niuniu/join.html",
+            //输出时需要引入的实体
+            requires:['join'],
+            //使用到的html模块
+            template:"src/html/niuniu/join.html"
 
         }),
         new CopyWebpackPlugin([
